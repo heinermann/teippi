@@ -1,0 +1,5914 @@
+inline void MedicRemove(Unit * a1)
+{
+    __asm {
+        mov edx, a1
+        mov eax, 0x004477C0
+        call eax
+    }
+}
+
+inline void ProgressOrder_Hidden(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EBED0
+        call ecx
+    }
+}
+
+inline void ProgressSecondaryOrder_Hidden(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EC120
+        call ecx
+    }
+}
+
+inline void ProgressUnitMovement(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0046C480
+        call ecx
+    }
+}
+
+inline void ProgressAcidSporeTimers(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F42C0
+        call ecx
+    }
+}
+
+inline void ProgressEnergyRegen(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004EB4B0
+        call eax
+    }
+}
+
+inline void ProgressSubunitDirection(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov esi, a1
+        mov eax, 0x004EB660
+        call eax
+    }
+}
+
+inline bool IsOutOfRange(const Unit * a1, const Unit * a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00476430
+        call ecx
+    }
+}
+
+inline bool HasTargetInRange(Unit * a1)
+{
+    __asm {
+        mov edx, a1
+        mov eax, 0x00442460
+        call eax
+    }
+}
+
+inline void AttackUnit(Unit * a1, Unit * a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        mov edi, a1
+        mov eax, a2
+        mov ecx, 0x00476FC0
+        call ecx
+    }
+}
+
+inline void Ai_StimIfNeeded(Unit * arg_unit)
+{
+    __asm {
+        push arg_unit;
+        mov eax, 0x0043FFD0
+        call eax
+    }
+}
+
+inline bool IsReadyToAttack(Unit * arg_unit, int arg_weapon)
+{
+    __asm {
+        push arg_weapon;
+        mov eax, arg_unit
+        mov ecx, 0x00476640
+        call ecx
+    }
+}
+
+inline Unit * CreateUnit(int a1, x32 a2, y32 a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x004A09D0
+        call edx
+    }
+}
+
+inline void FinishUnit_Pre(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004A01F0
+        call ecx
+    }
+}
+
+inline void FinishUnit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0049FA40
+        call ecx
+    }
+}
+
+inline void TransformUnit(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0049FED0
+        call ecx
+    }
+}
+
+inline int PrepareBuildUnit(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov edi, a1
+        mov eax, 0x00467250
+        call eax
+    }
+}
+
+inline int GiveUnit(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov ecx, a1
+        mov eax, 0x0049EFA0
+        call eax
+    }
+}
+
+inline void SetHp(Unit * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, 0x00467340
+        call edx
+    }
+}
+
+inline int GetHangarCapacity(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004653D0
+        call eax
+    }
+}
+
+inline int GetMissChance(const Unit * arg_attacker, const Unit * arg_target)
+{
+    __asm {
+        mov ecx, arg_attacker
+        mov eax, arg_target
+        mov edx, 0x004765B0
+        call edx
+    }
+}
+
+inline int GetBaseMissChance(const Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00476210
+        call ecx
+    }
+}
+
+inline int GetCurrentStrength(const Unit * a1, int a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x00431730
+        call edx
+    }
+}
+
+inline bool IsMultiSelectable(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x0047B770
+        call eax
+    }
+}
+
+inline int CheckUnitDatRequirements(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        mov esi, a1
+        mov eax, a2
+        mov ecx, 0x0046E1C0
+        call ecx
+    }
+}
+
+inline bool IsHigherRank(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov edi, a1
+        mov esi, a2
+        mov eax, 0x0049A350
+        call eax
+    }
+}
+
+inline bool IsTooClose(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov eax, a1
+        mov esi, a2
+        mov ecx, 0x004764D0
+        call ecx
+    }
+}
+
+inline bool IsPowered(int a1, x32 a2, y32 a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004936B0
+        call ecx
+    }
+}
+
+inline void PlaySelectionSound(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0048F910
+        call eax
+    }
+}
+
+inline void GetFormationMovementTarget(Unit * a1, MovementGroup * a2)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, 0x0049A500
+        call eax
+    }
+}
+
+inline int ShowRClickErrorIfNeeded(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00455A00
+        call eax
+    }
+}
+
+inline int NeedsMoreEnergy(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, 0x00491480
+        call eax
+    }
+}
+
+inline void MoveUnit(Unit * a1, x32 a2, y32 a3)
+{
+    __asm {
+        mov edx, a1
+        mov eax, a2
+        mov ecx, a3
+        mov ebx, 0x004EBAE0
+        call ebx
+    }
+}
+
+inline void MoveUnit_Partial(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0046AD90
+        call ecx
+    }
+}
+
+inline void HideUnit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E6340
+        call ecx
+    }
+}
+
+inline void HideUnit_Partial(Unit * arg_unit, int arg_unk)
+{
+    __asm {
+        push arg_unk;
+        mov edi, arg_unit
+        mov eax, 0x00493CA0
+        call eax
+    }
+}
+
+inline void ShowUnit(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004E6490
+        call eax
+    }
+}
+
+inline void DisableUnit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00492CC0
+        call ecx
+    }
+}
+
+inline void AcidSporeUnit(Unit * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x004F4480
+        call eax
+    }
+}
+
+inline void FinishMoveUnit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00494160
+        call ecx
+    }
+}
+
+inline void PlayYesSoundAnim(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0048F4D0
+        call ecx
+    }
+}
+
+inline bool GetUnloadPosition(uint16_t * a1, Unit * a2, Unit * a3)
+{
+    __asm {
+        push a1;
+        mov eax, a2
+        mov esi, a3
+        mov ecx, 0x004E76C0
+        call ecx
+    }
+}
+
+inline void ModifyUnitCounters(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00488BF0
+        call ecx
+    }
+}
+
+inline void ModifyUnitCounters2(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        mov edi, a1
+        mov ecx, a2
+        mov eax, 0x00488D50
+        call eax
+    }
+}
+
+inline void AddToCompletedUnitLbScore(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x00460860
+        call eax
+    }
+}
+
+inline bool CanPlaceBuilding(Unit * a1, int a2, int a3)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, a3
+        mov ebx, 0x0048DBD0
+        call ebx
+    }
+}
+
+inline void ClearBuildingTileFlag(Unit * a1, x32 a2, y32 a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00469EC0
+        call ecx
+    }
+}
+
+inline void RemoveReferences(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov edi, a1
+        mov eax, 0x0049EB70
+        call eax
+    }
+}
+
+inline void StopMoving(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EB290
+        call ecx
+    }
+}
+
+inline void RemoveFromMap(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0046A560
+        call ecx
+    }
+}
+
+inline void SubunitDeath(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004A0990
+        call eax
+    }
+}
+
+inline void DropPowerup(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004F3B70
+        call eax
+    }
+}
+
+inline void UpdateVisibility(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004EBE10
+        call eax
+    }
+}
+
+inline void UpdateDetectionStatus(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00443390
+        call ecx
+    }
+}
+
+inline void RemoveFromCloakedUnits(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004916E0
+        call eax
+    }
+}
+
+inline void BeginInvisibility(Unit * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, 0x0049B5B0
+        call edx
+    }
+}
+
+inline void EndInvisibility(Unit * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov ebx, a2
+        mov ecx, 0x0049B440
+        call ecx
+    }
+}
+
+inline void Unburrow(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E97C0
+        call ecx
+    }
+}
+
+inline void CancelBuildingMorph(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0045D410
+        call ecx
+    }
+}
+
+inline void RefundFullCost(int arg_unit_id, int arg_player)
+{
+    __asm {
+        mov ecx, arg_unit_id
+        mov eax, arg_player
+        mov edx, 0x0042CEC0
+        call edx
+    }
+}
+
+inline void RefundFourthOfCost(int arg_player, int arg_unit_id)
+{
+    __asm {
+        mov ecx, arg_player
+        mov eax, arg_unit_id
+        mov edx, 0x0042CE70
+        call edx
+    }
+}
+
+inline void Order_MedicIdle(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00463900
+        call ecx
+    }
+}
+
+inline void DeletePowerupImages(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F3900
+        call ecx
+    }
+}
+
+inline bool IsPointAtUnitBorder(Unit * a1, Unit * a2, uint32_t a3)
+{
+    __asm {
+        push a3;
+        push a1;
+        mov edx, a2
+        mov eax, 0x0042DA90
+        call eax
+    }
+}
+
+inline void SendCommand(const void * a1, int a2)
+{
+    __asm {
+        mov ecx, a1
+        mov edx, a2
+        mov eax, 0x00485BD0
+        call eax
+    }
+}
+
+inline Unit * NextCommandedUnit()
+{
+    __asm {
+        mov eax, 0x0049A850
+        call eax
+    }
+}
+
+inline bool IsOutsideGameScreen(int a1, int a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x004D1140
+        call edx
+    }
+}
+
+inline void MarkControlDirty(Control * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0041C400
+        call ecx
+    }
+}
+
+inline void CopyToFrameBuffer(Rect32 * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x0041D3A0
+        call eax
+    }
+}
+
+inline void MarkAreaForRedraw(Rect32 * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x0042D280
+        call eax
+    }
+}
+
+inline bool HasToDodge(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov edx, a1
+        mov eax, a2
+        mov ecx, 0x0042DF70
+        call ecx
+    }
+}
+
+inline void InsertContour(Contour * a1, PathingData * a2, Contour ** a3, Contour ** a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov edx, a1
+        mov eax, 0x00421910
+        call eax
+    }
+}
+
+inline void PrepareFormationMovement(MovementGroup * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov edi, a1
+        mov eax, 0x0049A8C0
+        call eax
+    }
+}
+
+inline int GetFacingDirection(x32 a1, y32 a2, x32 a3, y32 a4)
+{
+    __asm {
+        push a2;
+        mov edx, a1
+        mov ecx, a3
+        mov eax, a4
+        mov ebx, 0x00495300
+        call ebx
+    }
+}
+
+inline int GetOthersLocation(const Unit * a1, const Unit * a2)
+{
+    __asm {
+        push a1;
+        mov eax, a2
+        mov ecx, 0x004F1A20
+        call ecx
+    }
+}
+
+inline int GetEnemyAirStrength(int a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00431D00
+        call ecx
+    }
+}
+
+inline int GetEnemyStrength(int a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004318E0
+        call ecx
+    }
+}
+
+inline bool CanWalkHere(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        mov eax, a1
+        mov edx, a2
+        mov ecx, 0x0042FA00
+        call ecx
+    }
+}
+
+inline bool AreConnected(int a1, int a2, int a3)
+{
+    __asm {
+        mov eax, a1
+        mov esi, a2
+        mov ebx, a3
+        mov ecx, 0x00437E70
+        call ecx
+    }
+}
+
+inline int MakePath(Unit * a1, uint32_t a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0042FE00
+        call ecx
+    }
+}
+
+inline bool UpdateMovementState(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0046A940
+        call ecx
+    }
+}
+
+inline Unit * FindCollidingUnit(Unit * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x004F20D0
+        call eax
+    }
+}
+
+inline int TerrainCollision(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F1980
+        call ecx
+    }
+}
+
+inline bool DoesBlockPoint(const Unit * a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov edx, a1
+        mov eax, 0x0042DA00
+        call eax
+    }
+}
+
+inline bool WriteCompressed(File * a1, const void * a2, int a3)
+{
+    __asm {
+        push a1;
+        push a3;
+        mov eax, a2
+        mov ecx, 0x004C3450
+        call ecx
+    }
+}
+
+inline bool ReadCompressed(File * arg_file, void * arg_out, int arg_len)
+{
+    __asm {
+        push arg_file;
+        push arg_len;
+        push arg_out;
+        mov eax, 0x004C3280
+        call eax
+    }
+}
+
+inline void SaveDisappearingCreepChunk(File * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x0047DA80
+        call eax
+    }
+}
+
+inline void SaveDatChunk(File * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004BF390
+        call eax
+    }
+}
+
+inline void SaveTriggerChunk(File * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004899D0
+        call eax
+    }
+}
+
+inline void WriteReadableSaveHeader(File * a1, const char * a2)
+{
+    __asm {
+        push a2;
+        mov ebx, a1
+        mov eax, 0x004CE950
+        call eax
+    }
+}
+
+inline void WriteSaveHeader(File * a1, uint32_t a2)
+{
+    __asm {
+        push a1;
+        push a2;
+        mov eax, 0x004CF160
+        call eax
+    }
+}
+
+inline void ReplaceWithShortPath(char * a1, int a2)
+{
+    __asm {
+        mov esi, a1
+        mov edi, a2
+        mov eax, 0x004CE370
+        call eax
+    }
+}
+
+inline void ReplaceWithFullPath(char * a1, int a2)
+{
+    __asm {
+        mov edi, a1
+        mov esi, a2
+        mov eax, 0x004CE300
+        call eax
+    }
+}
+
+inline uint32_t FirstCommandUser()
+{
+    __asm {
+        mov eax, 0x004C3DB0
+        call eax
+    }
+}
+
+inline bool IsInvalidFilename(const char * a1, int a2, int a3)
+{
+    __asm {
+        mov edx, a1
+        mov ecx, a2
+        mov eax, a3
+        mov ebx, 0x004F3F20
+        call ebx
+    }
+}
+
+inline bool GetUserFilePath(const char * a1, char * a2, int a3, int a4)
+{
+    __asm {
+        push a1;
+        mov ecx, a2
+        mov eax, a3
+        mov ebx, a4
+        mov edx, 0x004CF2A0
+        call edx
+    }
+}
+
+inline void ShowWaitDialog(const char * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004F5C50
+        call eax
+    }
+}
+
+inline void HidePopupDialog()
+{
+    __asm {
+        mov eax, 0x004F5930
+        call eax
+    }
+}
+
+inline void DeleteAiRegions()
+{
+    __asm {
+        mov eax, 0x00436A40
+        call eax
+    }
+}
+
+inline void AllocateAiRegions(int a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00436A80
+        call ecx
+    }
+}
+
+inline bool LoadDisappearingCreepChunk(File * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x0047D9D0
+        call eax
+    }
+}
+
+inline bool LoadTriggerChunk(File * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004897E0
+        call eax
+    }
+}
+
+inline bool LoadDatChunk(File * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov esi, a1
+        mov eax, 0x004BF020
+        call eax
+    }
+}
+
+inline void RestorePylons()
+{
+    __asm {
+        mov eax, 0x00494030
+        call eax
+    }
+}
+
+inline void PlaySound(int a1, Unit * a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        mov ebx, a1
+        mov esi, a2
+        mov eax, 0x0048ED50
+        call eax
+    }
+}
+
+inline void PlaySoundAtPos(int a1, uint32_t a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov ebx, a1
+        mov eax, 0x0048EC10
+        call eax
+    }
+}
+
+inline void PrintText(const char * a1, int a2, int a3)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, a3
+        mov ecx, 0x0048D1C0
+        call ecx
+    }
+}
+
+inline void ShowInfoMessage(int a1, int a2, int a3)
+{
+    __asm {
+        mov edi, a1
+        mov esi, a2
+        mov ebx, a3
+        mov eax, 0x0048EE30
+        call eax
+    }
+}
+
+inline void ShowErrorMessage(const char * a1, int a2, Unit * a3)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, a3
+        mov ebx, 0x0048EF30
+        call ebx
+    }
+}
+
+inline void PrintInfoMessage(const char * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0048CCB0
+        call ecx
+    }
+}
+
+inline int Distance_(x32 a1, y32 a2, x32 a3, y32 a4)
+{
+    __asm {
+        push a4;
+        push a2;
+        mov ecx, a1
+        mov edx, a3
+        mov eax, 0x0040C360
+        call eax
+    }
+}
+
+inline bool IsPointInArea(const Unit * a1, int a2, x32 a3, y32 a4)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov ecx, a1
+        mov eax, a4
+        mov edx, 0x00401240
+        call edx
+    }
+}
+
+inline bool IsInArea(const Unit * a1, int a2, const Unit * a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov ecx, a1
+        mov eax, 0x00430F10
+        call eax
+    }
+}
+
+inline void ProgressTime(int a1)
+{
+    __asm {
+        mov edx, a1
+        mov eax, 0x00489CC0
+        call eax
+    }
+}
+
+inline void ProgressTriggerList(TriggerList * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00489450
+        call ecx
+    }
+}
+
+inline void ApplyVictory()
+{
+    __asm {
+        mov eax, 0x0048A200
+        call eax
+    }
+}
+
+inline void DeleteTimer(Control * arg_ctrl, int arg_timer_id)
+{
+    __asm {
+        mov esi, arg_ctrl
+        mov edx, arg_timer_id
+        mov eax, 0x00416000
+        call eax
+    }
+}
+
+inline Unit * FindUnitInLocation(int arg_unit_id, int arg_player, int arg_location)
+{
+    __asm {
+        push arg_player;
+        push arg_unit_id;
+        mov eax, arg_location
+        mov ecx, 0x004C7380
+        call ecx
+    }
+}
+
+inline void PingMinimap(int arg_x, int arg_y, int arg_trigger_player_id)
+{
+    __asm {
+        push arg_trigger_player_id;
+        push arg_y;
+        push arg_x;
+        mov eax, 0x004A34C0
+        call eax
+    }
+}
+
+inline void Trigger_Portrait(int arg_unit_id, int arg_msecs, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_y;
+        push arg_unit_id;
+        mov esi, arg_msecs
+        mov edi, arg_x
+        mov eax, 0x0045EDD0
+        call eax
+    }
+}
+
+inline const char * GetChkString(int arg_string_id)
+{
+    __asm {
+        mov edx, arg_string_id
+        mov eax, 0x004BD0C0
+        call eax
+    }
+}
+
+inline uint32_t GetTextDisplayTime(const char * arg_text)
+{
+    __asm {
+        mov eax, arg_text
+        mov ecx, 0x004C51D0
+        call ecx
+    }
+}
+
+inline void Trigger_DisplayText(const char * arg_msg, int arg_time_msecs)
+{
+    __asm {
+        push arg_time_msecs;
+        mov esi, arg_msg
+        mov eax, 0x0048CF20
+        call eax
+    }
+}
+
+inline bool CanHitUnit(Unit * a1, Unit * a2, int a3)
+{
+    __asm {
+        push a2;
+        mov edx, a1
+        mov eax, a3
+        mov ecx, 0x00475CE0
+        call ecx
+    }
+}
+
+inline void ProgressBulletFlight(Bullet * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0048B3B0
+        call ecx
+    }
+}
+
+inline void ProgressBulletMovement(Bullet * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0048B250
+        call ecx
+    }
+}
+
+inline void ChangeMovePos(void * a1, int a2, int a3)
+{
+    __asm {
+        mov eax, a1
+        mov esi, a2
+        mov ecx, a3
+        mov edx, 0x00495240
+        call edx
+    }
+}
+
+inline void UpdateDamageOverlay(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004E6090
+        call eax
+    }
+}
+
+inline void ShowArea(int a1, int a2, x32 a3, y32 a4, int a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        mov eax, a1
+        mov ecx, a2
+        mov edx, 0x004806F0
+        call edx
+    }
+}
+
+inline void ChangeDirectionToMoveWaypoint(void * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00495840
+        call eax
+    }
+}
+
+inline void ProgressSpeed(void * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00495CB0
+        call eax
+    }
+}
+
+inline void UpdateIsMovingFlag(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00495080
+        call ecx
+    }
+}
+
+inline void ProgressMove(void * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004956C0
+        call eax
+    }
+}
+
+inline void ChangedDirection(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00495100
+        call ecx
+    }
+}
+
+inline void ProgressMoveWith(void * a1, int a2, int a3)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, a3
+        mov ebx, 0x00495980
+        call ebx
+    }
+}
+
+inline bool MoveFlingy(Flingy * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00496030
+        call eax
+    }
+}
+
+inline void PrepareDrawSprite(Sprite * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004983A0
+        call ecx
+    }
+}
+
+inline void DrawSprite(Sprite * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00498C50
+        call ecx
+    }
+}
+
+inline uint8_t GetAreaVisibility(int a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a3;
+        push a2;
+        push a1;
+        mov edx, a4
+        mov eax, 0x00402500
+        call eax
+    }
+}
+
+inline uint8_t GetAreaExploration(int a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a3;
+        push a2;
+        push a1;
+        mov edx, a4
+        mov eax, 0x00402570
+        call eax
+    }
+}
+
+inline void SetVisibility(Sprite * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov ebx, a1
+        mov eax, 0x00497480
+        call eax
+    }
+}
+
+inline void DrawTransmissionSelectionCircle(Sprite * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov esi, a1
+        mov eax, 0x004EBBD0
+        call eax
+    }
+}
+
+inline void DrawOwnMinimapUnits(int a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004A48E0
+        call ecx
+    }
+}
+
+inline void DrawMinimapDot(int a1, x32 a2, y32 a3, int a4, int a5, int a6)
+{
+    __asm {
+        push a6;
+        push a5;
+        push a4;
+        push a3;
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x004A3FD0
+        call edx
+    }
+}
+
+inline void MoveSprite(Sprite * a1, int a2, int a3)
+{
+    __asm {
+        mov ecx, a1
+        mov ebx, a2
+        mov edi, a3
+        mov eax, 0x00497A10
+        call eax
+    }
+}
+
+inline Unit * FindFowUnit(x32 a1, y32 a2, int a3)
+{
+    __asm {
+        push a3;
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x00487FD0
+        call edx
+    }
+}
+
+inline bool InitializeSprite(Sprite * a1, int a2, x32 a3, y32 a4, int a5)
+{
+    __asm {
+        push a1;
+        mov edx, a2
+        mov eax, a3
+        mov edi, a4
+        mov ecx, a5
+        mov ebx, 0x00499030
+        call ebx
+    }
+}
+
+inline void AddOverlayHighest(Sprite * a1, int a2, int a3, int a4, int a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        mov eax, a1
+        mov esi, a2
+        mov ecx, 0x00498EA0
+        call ecx
+    }
+}
+
+inline void AddOverlayAboveMain(Sprite * a1, int a2, int a3, int a4, int a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        mov eax, a1
+        mov esi, a2
+        mov ecx, 0x00498E00
+        call ecx
+    }
+}
+
+inline void AddOverlayBelowMain(Sprite * arg_sprite, int arg_image_id, int arg_x_off, int arg_y_off, int arg_direction)
+{
+    __asm {
+        push arg_direction;
+        push arg_y_off;
+        push arg_x_off;
+        mov eax, arg_sprite
+        mov esi, arg_image_id
+        mov ecx, 0x00498D70
+        call ecx
+    }
+}
+
+inline void PrepareDrawImage(Image * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004D57B0
+        call ecx
+    }
+}
+
+inline void MarkImageAreaForRedraw(Image * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004970A0
+        call ecx
+    }
+}
+
+inline void ProgressIscriptFrame(Image * a1, Iscript * a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov ecx, a1
+        mov eax, 0x004D74C0
+        call eax
+    }
+}
+
+inline void SetImageDirection32(Image * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004D5EA0
+        call ecx
+    }
+}
+
+inline void SetImageDirection256(Image * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov esi, a1
+        mov eax, 0x004D5F80
+        call eax
+    }
+}
+
+inline int MatchesHeight(Unit * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov esi, a2
+        mov ecx, 0x0045F8D0
+        call ecx
+    }
+}
+
+inline int GetTerrainHeight(int a1, int a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x004BD0F0
+        call edx
+    }
+}
+
+inline void UpdateCreepDisappearance(int a1, x32 a2, y32 a3, int a4)
+{
+    __asm {
+        push a1;
+        mov edx, a2
+        mov ecx, a3
+        mov eax, a4
+        mov ebx, 0x0047DE40
+        call ebx
+    }
+}
+
+inline bool Ai_AreOnConnectedRegions(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00438E70
+        call ecx
+    }
+}
+
+inline bool DoesFitHere(int a1, x32 a2, y32 a3)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, a2
+        mov edi, a3
+        mov ecx, 0x0042D810
+        call ecx
+    }
+}
+
+inline bool GetFittingPosition(Rect16 * a1, Unit * a2, uint16_t * a3, uint16_t * a4, int a5, int a6)
+{
+    __asm {
+        push a6;
+        push a5;
+        push a4;
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0049D3E0
+        call ecx
+    }
+}
+
+inline int ClipPointInBoundsForUnit(int a1, uint16_t * a2)
+{
+    __asm {
+        mov eax, a1
+        mov edx, a2
+        mov ecx, 0x00401FA0
+        call ecx
+    }
+}
+
+inline void MoveScreen(int a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, 0x0049C440
+        call edx
+    }
+}
+
+inline void ClearSelection(int a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0049A740
+        call ecx
+    }
+}
+
+inline bool HasTeamSelection(int a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0049A110
+        call ecx
+    }
+}
+
+inline bool AddToPlayerSelection(int a1, int a2, Unit * a3)
+{
+    __asm {
+        mov edi, a1
+        mov ebx, a2
+        mov esi, a3
+        mov eax, 0x0049AF80
+        call eax
+    }
+}
+
+inline void UpdateSelectionOverlays(Unit * const * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0049AE40
+        call ecx
+    }
+}
+
+inline void MakeDashedSelectionCircle(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E65C0
+        call ecx
+    }
+}
+
+inline void RemoveDashedSelectionCircle(Sprite * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00497590
+        call ecx
+    }
+}
+
+inline int RemoveFromSelection(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0049A170
+        call ecx
+    }
+}
+
+inline void RemoveFromSelections(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x0049A7F0
+        call eax
+    }
+}
+
+inline void RemoveFromClientSelection3(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0049F7A0
+        call ecx
+    }
+}
+
+inline int CanUseTech(int a1, Unit * a2, int a3)
+{
+    __asm {
+        push a3;
+        mov edi, a1
+        mov eax, a2
+        mov ecx, 0x0046DD80
+        call ecx
+    }
+}
+
+inline int CanTargetSpell(Unit * a1, x32 a2, y32 a3, int16_t * a4, int a5, Unit * a6, int a7)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov edx, a5
+        mov edi, a6
+        mov esi, a7
+        mov eax, 0x00492020
+        call eax
+    }
+}
+
+inline int CanTargetSpellOnUnit(int a1, Unit * a2, int a3)
+{
+    __asm {
+        push a1;
+        mov eax, a2
+        mov ebx, a3
+        mov ecx, 0x00491E80
+        call ecx
+    }
+}
+
+inline int SpellOrder(Unit * a1, int a2, int a3, uint16_t * a4, int a5)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov ebx, a1
+        mov eax, a5
+        mov ecx, 0x004926D0
+        call ecx
+    }
+}
+
+inline void ApplyStasis(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov edi, a1
+        mov eax, 0x004F67B0
+        call eax
+    }
+}
+
+inline void ApplyEnsnare(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004F45E0
+        call eax
+    }
+}
+
+inline void ApplyMaelstrom(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov edi, a1
+        mov eax, 0x004553F0
+        call eax
+    }
+}
+
+inline void UpdateSpeed(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00454310
+        call ecx
+    }
+}
+
+inline void EndStasis(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004F62D0
+        call eax
+    }
+}
+
+inline void EndLockdown(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00454D90
+        call eax
+    }
+}
+
+inline void EndMaelstrom(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00454D20
+        call eax
+    }
+}
+
+inline Unit * Hallucinate(int arg_player, Unit * arg_target)
+{
+    __asm {
+        push arg_player;
+        mov ecx, arg_target
+        mov eax, 0x004F6B90
+        call eax
+    }
+}
+
+inline int PlaceHallucination(Unit * arg_hallu)
+{
+    __asm {
+        mov eax, arg_hallu
+        mov ecx, 0x004F66D0
+        call ecx
+    }
+}
+
+inline int CanIssueOrder(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        mov eax, a1
+        mov ebx, a2
+        mov ecx, 0x0046DC20
+        call ecx
+    }
+}
+
+inline bool CanTargetOrder(Unit * a1, Unit * a2, int a3, int16_t * a4)
+{
+    __asm {
+        push a4;
+        mov ebx, a1
+        mov esi, a2
+        mov eax, a3
+        mov ecx, 0x00474D90
+        call ecx
+    }
+}
+
+inline bool CanTargetOrderOnFowUnit(Unit * a1, int a2, int a3, int16_t * a4)
+{
+    __asm {
+        mov ebx, a1
+        mov ecx, a2
+        mov edx, a3
+        mov edi, a4
+        mov eax, 0x004746D0
+        call eax
+    }
+}
+
+inline void IssueOrderTargetingUnit(Unit * a1, Unit * a2, int arg_queued, int arg_order)
+{
+    __asm {
+        push arg_order;
+        push arg_queued;
+        mov esi, a1
+        mov edx, a2
+        mov eax, 0x004756E0
+        call eax
+    }
+}
+
+inline void IssueOrderTargetingUnit2(Unit * arg_self, int arg_order, Unit * arg_target)
+{
+    __asm {
+        push arg_order;
+        mov esi, arg_self
+        mov eax, arg_target
+        mov ecx, 0x004752B0
+        call ecx
+    }
+}
+
+inline void IssueOrderTargetingNothing(Unit * a1, int a2)
+{
+    __asm {
+        mov esi, a1
+        mov ecx, a2
+        mov eax, 0x00475310
+        call eax
+    }
+}
+
+inline void IssueOrderTargetingGround(Unit * a1, int a2, x32 a3, y32 a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov esi, a1
+        mov eax, 0x00475260
+        call eax
+    }
+}
+
+inline void IssueOrderTargetingGround2(Unit * a1, int a2, x32 a3, y32 a4, int a5, int a6)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a6;
+        mov esi, a1
+        mov edx, a2
+        mov ebx, a5
+        mov eax, 0x004756B0
+        call eax
+    }
+}
+
+inline void AppendOrder(Unit * a1, int a2, uint32_t a3, const Unit * a4, int a5, int a6)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        mov edx, a1
+        mov ecx, a2
+        mov eax, a6
+        mov ebx, 0x00474810
+        call ebx
+    }
+}
+
+inline void AppendOrderTargetingGround(Unit * a1, int a2, uint32_t a3)
+{
+    __asm {
+        push a3;
+        mov edx, a1
+        mov ecx, a2
+        mov eax, 0x00474D60
+        call eax
+    }
+}
+
+inline void AddOrder(Unit * a1, int a2, Order * a3, int a4, uint32_t a5, const Unit * a6)
+{
+    __asm {
+        push a6;
+        push a5;
+        mov esi, a1
+        mov ebx, a2
+        mov edi, a3
+        mov edx, a4
+        mov eax, 0x004745F0
+        call eax
+    }
+}
+
+inline void IssueOrder(Unit * a1, int a2, uint32_t a3, const Unit * a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov esi, a1
+        mov eax, 0x00474C30
+        call eax
+    }
+}
+
+inline void DoNextQueuedOrderIfAble(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00475420
+        call ecx
+    }
+}
+
+inline void PrependOrderTargetingNothing(Unit * a1, int a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x00474B40
+        call edx
+    }
+}
+
+inline void PrependOrderTargetingGround(Unit * arg_unit, int arg_order_id, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_unit;
+        mov eax, arg_order_id
+        mov edx, arg_x
+        mov ecx, arg_y
+        mov ebx, 0x00474A20
+        call ebx
+    }
+}
+
+inline void IssueOrderTargetingUnit_Simple(Unit * a1, int arg_order, const Unit * a3)
+{
+    __asm {
+        push arg_order;
+        mov esi, a1
+        mov eax, a3
+        mov ecx, 0x004752B0
+        call ecx
+    }
+}
+
+inline void InsertOrderTargetingNothing(Unit * arg_self, int arg_order, Order * arg_insert_before)
+{
+    __asm {
+        mov esi, arg_self
+        mov ebx, arg_order
+        mov edi, arg_insert_before
+        mov eax, 0x00474760
+        call eax
+    }
+}
+
+inline void InsertOrder(Unit * arg_unit, int arg_order, const Unit * arg_target, uint32_t arg_position_xy, int arg_fow_unit, Order * arg_insert_before)
+{
+    __asm {
+        push arg_target;
+        push arg_position_xy;
+        mov esi, arg_unit
+        mov ebx, arg_order
+        mov edx, arg_fow_unit
+        mov edi, arg_insert_before
+        mov eax, 0x00474540
+        call eax
+    }
+}
+
+inline uint32_t PrepareFlee(Unit * a1, const Unit * a2)
+{
+    __asm {
+        push a1;
+        mov eax, a2
+        mov ecx, 0x00476A50
+        call ecx
+    }
+}
+
+inline bool Flee(Unit * a1, Unit * a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0043E400
+        call ecx
+    }
+}
+
+inline Unit * FindNearestUnitOfId(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004410C0
+        call ecx
+    }
+}
+
+inline void ChangeAiRegionState(Ai::Region * a1, int a2)
+{
+    __asm {
+        mov esi, a1
+        mov ebx, a2
+        mov eax, 0x004390A0
+        call eax
+    }
+}
+
+inline bool Ai_ReturnToNearestBaseForced(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x0043DB50
+        call eax
+    }
+}
+
+inline void Ai_Detect(Unit * a1, Unit * a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x0043C580
+        call ecx
+    }
+}
+
+inline bool Ai_CastReactionSpell(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004A13C0
+        call ecx
+    }
+}
+
+inline bool TryBeginDeleteTown(Ai::Town * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00434330
+        call eax
+    }
+}
+
+inline Unit * FindNearestAvailableMilitary(int a1, x32 a2, y32 a3, int a4)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov ebx, a3
+        mov ecx, a4
+        mov eax, 0x004379B0
+        call eax
+    }
+}
+
+inline void Ai_GuardRequest(Ai::GuardAi * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, 0x00448630
+        call edx
+    }
+}
+
+inline bool Ai_ShouldKeepTarget(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x00476930
+        call edx
+    }
+}
+
+inline void Ai_RecalculateRegionStrength(Ai::Region * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x0043A390
+        call eax
+    }
+}
+
+inline void Ai_PopSpendingRequestResourceNeeds(int a1, int a2)
+{
+    __asm {
+        push a2;
+        mov ecx, a1
+        mov eax, 0x00447D00
+        call eax
+    }
+}
+
+inline void Ai_PopSpendingRequest(int a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004476D0
+        call ecx
+    }
+}
+
+inline bool Ai_DoesHaveResourcesForUnit(int a1, int a2)
+{
+    __asm {
+        push a1;
+        mov ecx, a2
+        mov eax, 0x004487B0
+        call eax
+    }
+}
+
+inline bool Ai_TrainUnit(Unit * a1, int a2, int a3, void * a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004672F0
+        call ecx
+    }
+}
+
+inline void InheritAi2(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, a2
+        mov edx, 0x004A2830
+        call edx
+    }
+}
+
+inline Ai::UnitAi * Ai_FindNearestActiveMilitaryAi(Ai::Region * a1, int a2, int a3, int a4, Ai::Region * a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x0043BC40
+        call eax
+    }
+}
+
+inline Ai::UnitAi * Ai_FindNearestMilitaryOrSepContAi(Ai::Region * a1, int a2, int a3, int a4, int a5, Ai::Region * a6)
+{
+    __asm {
+        push a6;
+        push a5;
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x0043BAC0
+        call eax
+    }
+}
+
+inline bool Ai_PrepareMovingTo(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x004E7420
+        call eax
+    }
+}
+
+inline void ProgressMilitaryAi(Unit * a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x0043D5D0
+        call eax
+    }
+}
+
+inline void Ai_UpdateSlowestUnitInRegion(Ai::Region * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00436F70
+        call eax
+    }
+}
+
+inline void ProgressAiScript(Ai::Script * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0045B850
+        call eax
+    }
+}
+
+inline void RemoveFromAiStructs(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, 0x00439D60
+        call eax
+    }
+}
+
+inline void Ai_UpdateRegionStateUnk(int a1, Unit * a2)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, 0x0043A010
+        call eax
+    }
+}
+
+inline void Ai_UnloadFailure(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0043DF30
+        call eax
+    }
+}
+
+inline bool Ai_AttackTo(int a1, int a2, int a3, int a4, int a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x0043ABB0
+        call eax
+    }
+}
+
+inline void Ai_EndAllMovingToAttack(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00439500
+        call eax
+    }
+}
+
+inline void DrawFlashingSelectionCircles()
+{
+    __asm {
+        mov eax, 0x004D9460
+        call eax
+    }
+}
+
+inline void ProgressReplay()
+{
+    __asm {
+        mov eax, 0x00487100
+        call eax
+    }
+}
+
+inline void Replay_RefershUiIfNeeded()
+{
+    __asm {
+        mov eax, 0x004DEED0
+        call eax
+    }
+}
+
+inline bool ProgressTurns(uint32_t * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004D9550
+        call eax
+    }
+}
+
+inline bool UpdateCreepDisappearance_Unit(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0047DF90
+        call eax
+    }
+}
+
+inline void TryUpdateCreepDisappear()
+{
+    __asm {
+        mov eax, 0x0047E410
+        call eax
+    }
+}
+
+inline void ProgressCreepDisappearance()
+{
+    __asm {
+        mov eax, 0x0049C4C0
+        call eax
+    }
+}
+
+inline void UpdateFog()
+{
+    __asm {
+        mov eax, 0x00480880
+        call eax
+    }
+}
+
+inline void ProgressUnitFrames()
+{
+    __asm {
+        mov eax, 0x004ED000
+        call eax
+    }
+}
+
+inline void RevealSightArea(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004E5F30
+        call eax
+    }
+}
+
+inline void Ai_ProgressRegions()
+{
+    __asm {
+        mov eax, 0x0043FD80
+        call eax
+    }
+}
+
+inline void UpdateResourceAreas()
+{
+    __asm {
+        mov eax, 0x00445610
+        call eax
+    }
+}
+
+inline void Ai_Unk_004A2A40()
+{
+    __asm {
+        mov eax, 0x004A2A40
+        call eax
+    }
+}
+
+inline void CheckVictoryState()
+{
+    __asm {
+        mov eax, 0x0048A410
+        call eax
+    }
+}
+
+inline void AddSelectionOverlays()
+{
+    __asm {
+        mov eax, 0x00499A60
+        call eax
+    }
+}
+
+inline int IsCompletelyHidden(int a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        mov ecx, a1
+        mov edx, a2
+        mov eax, 0x00402380
+        call eax
+    }
+}
+
+inline int IsCompletelyUnExplored(int a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        mov ecx, a1
+        mov edx, a2
+        mov eax, 0x00402440
+        call eax
+    }
+}
+
+inline int Ui_NeedsRedraw_Unk()
+{
+    __asm {
+        mov eax, 0x00424A10
+        call eax
+    }
+}
+
+inline int GenericStatus_DoesNeedRedraw()
+{
+    __asm {
+        mov eax, 0x00424980
+        call eax
+    }
+}
+
+inline void DrawNeutralMinimapUnits(int a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004A4650
+        call eax
+    }
+}
+
+inline void DrawMinimapUnits(int a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004A47B0
+        call eax
+    }
+}
+
+inline int IsOwnedByPlayer(int a1, int a2, Unit * a3)
+{
+    __asm {
+        push a3;
+        mov ecx, a1
+        mov edx, a2
+        mov eax, 0x0045FEF0
+        call eax
+    }
+}
+
+inline int CanControlUnit(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00401170
+        call eax
+    }
+}
+
+inline void AddToRecentSelections()
+{
+    __asm {
+        mov eax, 0x004967A0
+        call eax
+    }
+}
+
+inline void EndTargeting()
+{
+    __asm {
+        mov eax, 0x0048CA10
+        call eax
+    }
+}
+
+inline void MarkPlacementBoxAreaDirty()
+{
+    __asm {
+        mov eax, 0x0048D9A0
+        call eax
+    }
+}
+
+inline void EndBuildingPlacement()
+{
+    __asm {
+        mov eax, 0x0048E310
+        call eax
+    }
+}
+
+inline Image * AddOverlayNoIscript(Sprite * a1, int a2, int a3, int a4, int a5)
+{
+    __asm {
+        push a5;
+        push a4;
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00498F40
+        call ecx
+    }
+}
+
+inline void SetCursorSprite(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004843F0
+        call eax
+    }
+}
+
+inline void RemoveSelectionCircle(Sprite * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004975D0
+        call eax
+    }
+}
+
+inline int DoUnitsBlock(const Unit * a1, uint32_t a2)
+{
+    __asm {
+        push a2;
+        push a1;
+        mov eax, 0x0042E1D0
+        call eax
+    }
+}
+
+inline void Notify_UnitWasHit(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0048F230
+        call eax
+    }
+}
+
+inline int STransBind(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00410316
+        call eax
+    }
+}
+
+inline int STrans437(void * a1, uint8_t * a2, int a3, void ** a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x00411E1E
+        call eax
+    }
+}
+
+inline int ContainsDirtyArea(int a1, int a2, int a3, int a4)
+{
+    __asm {
+        push a4;
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x0041DE20
+        call eax
+    }
+}
+
+inline void CopyGameScreenToFramebuf()
+{
+    __asm {
+        mov eax, 0x0041D420
+        call eax
+    }
+}
+
+inline void ShowLastError(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0049E530
+        call eax
+    }
+}
+
+inline bool Command_Sync_Main(void * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x0047CDD0
+        call eax
+    }
+}
+
+inline void Command_Load(void * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x004CF950
+        call eax
+    }
+}
+
+inline void Command_Restart()
+{
+    __asm {
+        mov eax, 0x004BFB10
+        call eax
+    }
+}
+
+inline void Command_Pause()
+{
+    __asm {
+        mov eax, 0x004C0BC0
+        call eax
+    }
+}
+
+inline void Command_Resume()
+{
+    __asm {
+        mov eax, 0x004C0B00
+        call eax
+    }
+}
+
+inline void Command_Build(void * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004C23C0
+        call eax
+    }
+}
+
+inline void Command_MinimapPing(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004BF7A0
+        call ecx
+    }
+}
+
+inline void Command_Vision(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004BF9C0
+        call ecx
+    }
+}
+
+inline void Command_Ally(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C28A0
+        call eax
+    }
+}
+
+inline void Command_Cheat(void * a1)
+{
+    __asm {
+        mov edx, a1
+        mov eax, 0x004C0AD0
+        call eax
+    }
+}
+
+inline void Command_Hotkey(void * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x004C2870
+        call eax
+    }
+}
+
+inline void Command_CancelBuild()
+{
+    __asm {
+        mov eax, 0x004C2EF0
+        call eax
+    }
+}
+
+inline void Command_CancelMorph()
+{
+    __asm {
+        mov eax, 0x004C2EC0
+        call eax
+    }
+}
+
+inline void Command_Stop(void * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004C2190
+        call eax
+    }
+}
+
+inline void Command_CarrierStop()
+{
+    __asm {
+        mov eax, 0x004C1430
+        call eax
+    }
+}
+
+inline void Command_ReaverStop()
+{
+    __asm {
+        mov eax, 0x004C1240
+        call eax
+    }
+}
+
+inline void Command_Order_Nothing()
+{
+    __asm {
+        mov eax, 0x004C1050
+        call eax
+    }
+}
+
+inline void Command_ReturnCargo(void * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004C2040
+        call eax
+    }
+}
+
+inline void Command_Train(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004C1C20
+        call ecx
+    }
+}
+
+inline void Command_CancelTrain(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C0100
+        call eax
+    }
+}
+
+inline void Command_Tech(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1BA0
+        call eax
+    }
+}
+
+inline void Command_CancelTech()
+{
+    __asm {
+        mov eax, 0x004C0070
+        call eax
+    }
+}
+
+inline void Command_Upgrade(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1B20
+        call eax
+    }
+}
+
+inline void Command_CancelUpgrade()
+{
+    __asm {
+        mov eax, 0x004BFFC0
+        call eax
+    }
+}
+
+inline void Command_Burrow(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1FA0
+        call eax
+    }
+}
+
+inline void Command_Unburrow()
+{
+    __asm {
+        mov eax, 0x004C1AC0
+        call eax
+    }
+}
+
+inline void Command_Cloak()
+{
+    __asm {
+        mov eax, 0x004C0720
+        call eax
+    }
+}
+
+inline void Command_Decloak()
+{
+    __asm {
+        mov eax, 0x004C0660
+        call eax
+    }
+}
+
+inline void Command_UnitMorph(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1990
+        call eax
+    }
+}
+
+inline void Command_BuildingMorph(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004C1910
+        call ecx
+    }
+}
+
+inline void Command_Unsiege(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1F10
+        call eax
+    }
+}
+
+inline void Command_Siege(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1E80
+        call eax
+    }
+}
+
+inline void Command_MergeArchon()
+{
+    __asm {
+        mov eax, 0x004C0E90
+        call eax
+    }
+}
+
+inline void Command_MergeDarkArchon()
+{
+    __asm {
+        mov eax, 0x004C0CD0
+        call eax
+    }
+}
+
+inline void Command_HoldPosition(void * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004C20C0
+        call eax
+    }
+}
+
+inline void Command_CancelNuke()
+{
+    __asm {
+        mov eax, 0x004BFCD0
+        call eax
+    }
+}
+
+inline void Command_Lift(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C1620
+        call eax
+    }
+}
+
+inline void Command_TrainFighter()
+{
+    __asm {
+        mov eax, 0x004C1800
+        call eax
+    }
+}
+
+inline void Command_CancelAddon()
+{
+    __asm {
+        mov eax, 0x004BFF30
+        call eax
+    }
+}
+
+inline void Command_Stim()
+{
+    __asm {
+        mov eax, 0x004C2F30
+        call eax
+    }
+}
+
+inline void Command_Latency(void * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00485E60
+        call ecx
+    }
+}
+
+inline void Command_LeaveGame(void * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C2E90
+        call eax
+    }
+}
+
+inline void Command_UnloadAll(void * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004C1CC0
+        call eax
+    }
+}
+
+inline void ChangeReplaySpeed(int a1, int a2, int a3)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, a2
+        mov edx, a3
+        mov ebx, 0x004DEB90
+        call ebx
+    }
+}
+
+inline void AddToReplayData(ReplayData * a1, int a2, const void * a3, int a4)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ebx, a3
+        mov edi, a4
+        mov ecx, 0x004CDE70
+        call ecx
+    }
+}
+
+inline void SetLabel(Control * a1, const char * a2, int a3)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, a3
+        mov edx, 0x004258B0
+        call edx
+    }
+}
+
+inline void FreeTriggerList(TriggerList * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x00402330
+        call eax
+    }
+}
+
+inline void Storm_LeaveGame(uint32_t a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004C3D20
+        call eax
+    }
+}
+
+inline void RemoveDialog(Control * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00419EA0
+        call eax
+    }
+}
+
+inline void ResetGameScreenEventHandlers()
+{
+    __asm {
+        mov eax, 0x00484CC0
+        call eax
+    }
+}
+
+inline void DeleteDirectSound()
+{
+    __asm {
+        mov eax, 0x004BBF50
+        call eax
+    }
+}
+
+inline void StopSounds()
+{
+    __asm {
+        mov eax, 0x004A5F50
+        call eax
+    }
+}
+
+inline void InitOrDeleteRaceSounds(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0048FB40
+        call eax
+    }
+}
+
+inline void FreeMapData()
+{
+    __asm {
+        mov eax, 0x004BD190
+        call eax
+    }
+}
+
+inline void FreeGameDialogs()
+{
+    __asm {
+        mov eax, 0x004C3780
+        call eax
+    }
+}
+
+inline void FreeEffectsSCodeUnk()
+{
+    __asm {
+        mov eax, 0x00416D90
+        call eax
+    }
+}
+
+inline void WindowPosUpdate()
+{
+    __asm {
+        mov eax, 0x004D2FF0
+        call eax
+    }
+}
+
+inline void ReportGameResult()
+{
+    __asm {
+        mov eax, 0x004C4790
+        call eax
+    }
+}
+
+inline void ClearNetPlayerData()
+{
+    __asm {
+        mov eax, 0x004D4AC0
+        call eax
+    }
+}
+
+inline void FreeUnkSound(void * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x004015F0
+        call eax
+    }
+}
+
+inline void Unpause(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00488790
+        call eax
+    }
+}
+
+inline void DeleteHealthBarImage(Image * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004D5030
+        call eax
+    }
+}
+
+inline void DeleteSelectionCircleImage(Image * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004D4FA0
+        call eax
+    }
+}
+
+inline void SetBuildingTileFlag(Unit * a1, int a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        mov eax, a1
+        mov ecx, 0x00469F60
+        call ecx
+    }
+}
+
+inline void CheckUnstack(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0042D9A0
+        call ecx
+    }
+}
+
+inline void IncrementAirUnitx14eValue(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00453300
+        call eax
+    }
+}
+
+inline void ForceMoveTargetInBounds(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x0046A740
+        call eax
+    }
+}
+
+inline bool ProgressRepulse(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00453420
+        call ecx
+    }
+}
+
+inline void FinishRepulse(Unit * a1, int a2)
+{
+    __asm {
+        push a2;
+        mov eax, a1
+        mov ecx, 0x004535A0
+        call ecx
+    }
+}
+
+inline void FinishUnitMovement(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0046AD90
+        call ecx
+    }
+}
+
+inline bool IsInFrontOfMovement(Unit * a1, Unit * a2)
+{
+    __asm {
+        mov esi, a1
+        mov ecx, a2
+        mov eax, 0x004F17C0
+        call eax
+    }
+}
+
+inline void Iscript_StopMoving(Unit * a1)
+{
+    __asm {
+        mov ecx, a1
+        mov eax, 0x0046A6B0
+        call eax
+    }
+}
+
+inline void InstantStop(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0046BF00
+        call ecx
+    }
+}
+
+inline void SetSpeed_Iscript(Unit * a1, int a2)
+{
+    __asm {
+        mov eax, a1
+        mov edx, a2
+        mov ecx, 0x004951C0
+        call ecx
+    }
+}
+
+inline const char * GetGluAllString(int a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004DDD30
+        call eax
+    }
+}
+
+inline void ReadStruct245(GameData * a1, Player * a2)
+{
+    __asm {
+        mov edx, a1
+        mov eax, a2
+        mov ecx, 0x004DE9D0
+        call ecx
+    }
+}
+
+inline bool PreloadMap(const char * a1, void * a2, int a3)
+{
+    __asm {
+        push a3;
+        push a2;
+        push a1;
+        mov eax, 0x004BF5D0
+        call eax
+    }
+}
+
+inline void AllocateReplayCommands()
+{
+    __asm {
+        mov eax, 0x004CE280
+        call eax
+    }
+}
+
+inline bool LoadReplayCommands(File * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x004CE220
+        call eax
+    }
+}
+
+inline int GetThreatLevel(const Unit * a1, const Unit * a2)
+{
+    __asm {
+        mov ebx, a1
+        mov edi, a2
+        mov eax, 0x00442160
+        call eax
+    }
+}
+
+inline void Ai_FocusUnit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0043FF00
+        call ecx
+    }
+}
+
+inline void Ai_FocusUnit2(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0043FF90
+        call ecx
+    }
+}
+
+inline void Order_ProtossBuildSelf(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E4F40
+        call ecx
+    }
+}
+
+inline void Order_JunkYardDog(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C210
+        call ecx
+    }
+}
+
+inline void Order_Medic(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00463900
+        call ecx
+    }
+}
+
+inline void Order_Obscured(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F6FA0
+        call ecx
+    }
+}
+
+inline void Order_Spell(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00492850
+        call ecx
+    }
+}
+
+inline void Order_WatchTarget(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BAB0
+        call ecx
+    }
+}
+
+inline void Order_ReaverAttack(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00465690
+        call ecx
+    }
+}
+
+inline void Order_Unload(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E80D0
+        call ecx
+    }
+}
+
+inline void Order_TowerGuard(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00476F50
+        call ecx
+    }
+}
+
+inline void Order_TowerAttack(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00479150
+        call ecx
+    }
+}
+
+inline void Order_InitCreepGrowth(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E96D0
+        call ecx
+    }
+}
+
+inline void Order_StoppingCreepGrowth(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E95E0
+        call ecx
+    }
+}
+
+inline void Order_Stop(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BBA0
+        call ecx
+    }
+}
+
+inline void Order_StayInRange(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C4F0
+        call ecx
+    }
+}
+
+inline void Order_Scan(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00464E40
+        call ecx
+    }
+}
+
+inline void Order_ScannerSweep(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00463D30
+        call ecx
+    }
+}
+
+inline void Order_ReturnResource(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004690C0
+        call ecx
+    }
+}
+
+inline void Order_RescuePassive(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004A1EF0
+        call ecx
+    }
+}
+
+inline void Order_RightClick(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F6EF0
+        call ecx
+    }
+}
+
+inline void Order_MoveToInfest(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E98E0
+        call ecx
+    }
+}
+
+inline void Order_InfestMine4(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EA290
+        call ecx
+    }
+}
+
+inline void Order_BuildProtoss2(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E4F20
+        call ecx
+    }
+}
+
+inline void Order_PowerupIdle(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F3E10
+        call ecx
+    }
+}
+
+inline void Order_PlaceMine(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00464FD0
+        call ecx
+    }
+}
+
+inline void Order_TransportIdle(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E7300
+        call ecx
+    }
+}
+
+inline void Order_Patrol(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004780F0
+        call ecx
+    }
+}
+
+inline void Order_NukePaint(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00463610
+        call ecx
+    }
+}
+
+inline void Order_Pickup4(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E7B70
+        call ecx
+    }
+}
+
+inline void Order_LiftingOff(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00463AC0
+        call ecx
+    }
+}
+
+inline void Order_InitPylon(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00493F70
+        call ecx
+    }
+}
+
+inline void Order_Move(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C950
+        call ecx
+    }
+}
+
+inline void Order_MoveToMinerals(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00469240
+        call ecx
+    }
+}
+
+inline void Order_WaitForMinerals(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00468F60
+        call ecx
+    }
+}
+
+inline void Order_WaitForGas(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00469000
+        call ecx
+    }
+}
+
+inline void Order_HarvestGas(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00469980
+        call ecx
+    }
+}
+
+inline void Order_MoveToHarvest(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00469500
+        call ecx
+    }
+}
+
+inline void Order_Follow(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C7B0
+        call ecx
+    }
+}
+
+inline void Order_Trap(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BF80
+        call ecx
+    }
+}
+
+inline void Order_HideTrap(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C0A0
+        call ecx
+    }
+}
+
+inline void Order_RevealTrap(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C1B0
+        call ecx
+    }
+}
+
+inline void Order_HarassMove(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00478EC0
+        call ecx
+    }
+}
+
+inline void Order_UnusedPowerup(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004F3EA0
+        call ecx
+    }
+}
+
+inline void Order_EnterTransport(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E7CF0
+        call ecx
+    }
+}
+
+inline void Order_EnterNydus(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EA3E0
+        call ecx
+    }
+}
+
+inline void Order_DroneStartBuild(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0045CF80
+        call ecx
+    }
+}
+
+inline void Order_DroneLand(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E9AA0
+        call ecx
+    }
+}
+
+inline void Order_EnableDoodad(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BE80
+        call ecx
+    }
+}
+
+inline void Order_DisableDoodad(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BD60
+        call ecx
+    }
+}
+
+inline void Order_OpenDoor(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BCD0
+        call ecx
+    }
+}
+
+inline void Order_CloseDoor(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047BC50
+        call ecx
+    }
+}
+
+inline void Order_Burrow(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E9E60
+        call ecx
+    }
+}
+
+inline void Order_Burrowed(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E9860
+        call ecx
+    }
+}
+
+inline void Order_Unburrow(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EA670
+        call ecx
+    }
+}
+
+inline void Order_CtfCopInit(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E4210
+        call ecx
+    }
+}
+
+inline void Order_ComputerReturn(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00478490
+        call ecx
+    }
+}
+
+inline void Order_CarrierIgnore2(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00466720
+        call ecx
+    }
+}
+
+inline void Order_CarrierStop(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00465910
+        call ecx
+    }
+}
+
+inline void Order_CarrierAttack(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00465950
+        call ecx
+    }
+}
+
+inline void Order_BeingInfested(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004EA4C0
+        call ecx
+    }
+}
+
+inline void Order_RechargeShieldsBattery(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00493990
+        call ecx
+    }
+}
+
+inline void Order_AiAttackMove(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00478DE0
+        call ecx
+    }
+}
+
+inline void Order_AttackFixedRange(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00477D00
+        call ecx
+    }
+}
+
+inline void Order_LiftOff(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004649B0
+        call eax
+    }
+}
+
+inline void Order_TerranBuildSelf(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00467760
+        call ecx
+    }
+}
+
+inline void Order_ZergBuildSelf(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0045D500
+        call ecx
+    }
+}
+
+inline void Order_ConstructingBuilding(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00467A70
+        call ecx
+    }
+}
+
+inline void Order_Critter(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0047C3C0
+        call ecx
+    }
+}
+
+inline void Order_StopHarvest(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00468ED0
+        call ecx
+    }
+}
+
+inline void Order_UnitMorph(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0045DEA0
+        call ecx
+    }
+}
+
+inline void Order_NukeTrain(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E6700
+        call ecx
+    }
+}
+
+inline void Order_CtfCop2(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004E3FB0
+        call ecx
+    }
+}
+
+inline void Order_TankMode(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00464AE0
+        call ecx
+    }
+}
+
+inline void Order_TurretAttack(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00477980
+        call ecx
+    }
+}
+
+inline void Order_TurretGuard(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004777F0
+        call ecx
+    }
+}
+
+inline void Order_ResetCollision1(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004671B0
+        call ecx
+    }
+}
+
+inline void Order_ResetCollision2(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0042E320
+        call ecx
+    }
+}
+
+inline void Order_Upgrade(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004546A0
+        call ecx
+    }
+}
+
+inline void Order_Birth(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x0045DD60
+        call ecx
+    }
+}
+
+inline void Order_Heal(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x00464180
+        call ecx
+    }
+}
+
+inline void Order_Tech(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004548B0
+        call ecx
+    }
+}
+
+inline void Order_Repair(Unit * a1)
+{
+    __asm {
+        mov eax, a1
+        mov ecx, 0x004673D0
+        call ecx
+    }
+}
+
+inline void Order_BuildNydusExit(Unit * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x0045DC20
+        call eax
+    }
+}
+
+inline void Order_NukeTrack(Unit * a1)
+{
+    __asm {
+        mov ebx, a1
+        mov eax, 0x00479480
+        call eax
+    }
+}
+
+inline void Order_MedicHoldPosition(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00464050
+        call eax
+    }
+}
+
+inline void Order_Harvest3(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00468E80
+        call eax
+    }
+}
+
+inline void Order_InitArbiter(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00493A80
+        call eax
+    }
+}
+
+inline void Order_CompletingArchonSummon(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00493B10
+        call eax
+    }
+}
+
+inline void Order_Guard(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00475B90
+        call eax
+    }
+}
+
+inline void Order_CtfCopStarted(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004E41A0
+        call eax
+    }
+}
+
+inline void Order_RechargeShieldsUnit(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x00493DD0
+        call eax
+    }
+}
+
+inline void Order_Interrupted(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x00493920
+        call eax
+    }
+}
+
+inline void Order_HealToIdle(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x00463740
+        call eax
+    }
+}
+
+inline void Order_Reaver(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004665D0
+        call eax
+    }
+}
+
+inline void Order_Neutral(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004A1C20
+        call eax
+    }
+}
+
+inline void Order_PickupBunker(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004E73B0
+        call eax
+    }
+}
+
+inline void Order_PickupTransport(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004E75D0
+        call eax
+    }
+}
+
+inline void Order_Carrier(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004666A0
+        call eax
+    }
+}
+
+inline void Order_WarpIn(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004E4C70
+        call eax
+    }
+}
+
+inline void Order_BuildProtoss1(Unit * a1)
+{
+    __asm {
+        mov edi, a1
+        mov eax, 0x004E4D00
+        call eax
+    }
+}
+
+inline void Order_AiPatrol(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x004A1D80
+        call eax
+    }
+}
+
+inline void Order_AttackMove(Unit * a1)
+{
+    __asm {
+        mov esi, a1
+        mov eax, 0x00479040
+        call eax
+    }
+}
+
+inline void Order_BuildTerran(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x00467FD0
+        call eax
+    }
+}
+
+inline void Order_HealMove(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004637B0
+        call eax
+    }
+}
+
+inline void Order_ReaverStop(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004654B0
+        call eax
+    }
+}
+
+inline void Order_DefensiveMatrix(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004550A0
+        call eax
+    }
+}
+
+inline void Order_BuildingMorph(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x0045D0D0
+        call eax
+    }
+}
+
+inline void Order_PlaceAddon(Unit * a1)
+{
+    __asm {
+        push a1;
+        mov eax, 0x004E6880
+        call eax
+    }
+}
+
+inline void Order_BunkerGuard(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004790A0
+        call ecx
+    }
+}
+
+inline void Order_BuildAddon(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004E6790
+        call ecx
+    }
+}
+
+inline void Order_TrainFighter(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00466790
+        call ecx
+    }
+}
+
+inline void Order_ShieldBattery(Unit * arg_unit)
+{
+    __asm {
+        mov edi, arg_unit
+        mov eax, 0x004932D0
+        call eax
+    }
+}
+
+inline void Order_SpawningLarva(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x004EA780
+        call eax
+    }
+}
+
+inline void Order_SpreadCreep(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004EA880
+        call ecx
+    }
+}
+
+inline void Order_Cloak(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00491790
+        call ecx
+    }
+}
+
+inline void Order_Decloak(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004633E0
+        call ecx
+    }
+}
+
+inline void Order_CloakNearbyUnits(Unit * arg_unit)
+{
+    __asm {
+        mov edi, arg_unit
+        mov eax, 0x00491C20
+        call eax
+    }
+}
+
+inline void InsertOrderTargetingGround(int arg_x, int arg_y, Unit * arg_self, int arg_order, Order * arg_insert_before)
+{
+    __asm {
+        push arg_y;
+        push arg_x;
+        mov esi, arg_self
+        mov ebx, arg_order
+        mov edi, arg_insert_before
+        mov eax, 0x00474790
+        call eax
+    }
+}
+
+inline void IssueOrderTargetingGround(Unit * arg_self, int arg_order, int arg_fow_unit_id, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_y;
+        push arg_x;
+        push arg_fow_unit_id;
+        push arg_order;
+        mov esi, arg_self
+        mov eax, 0x00474FB0
+        call eax
+    }
+}
+
+inline bool CheckFiringAngle(const Unit * arg_unit, int arg_x, int arg_y, int arg_weapon)
+{
+    __asm {
+        push arg_weapon;
+        mov esi, arg_unit
+        mov ecx, arg_x
+        mov eax, arg_y
+        mov edx, 0x00475BE0
+        call edx
+    }
+}
+
+inline bool IsMovingToMoveWaypoint(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00402A90
+        call ecx
+    }
+}
+
+inline uint32_t CalculateBaseStrength(int arg_weapon_id, int arg_unit_id)
+{
+    __asm {
+        push arg_weapon_id;
+        mov eax, arg_unit_id
+        mov ecx, 0x00431270
+        call ecx
+    }
+}
+
+inline uint32_t FinetuneBaseStrength(int arg_unit_id, int arg_base_strength)
+{
+    __asm {
+        mov eax, arg_unit_id
+        mov ecx, arg_base_strength
+        mov edx, 0x00431150
+        call edx
+    }
+}
+
+inline uint32_t CalculateSpeedChange(Unit * arg_unit, int arg_base_speed)
+{
+    __asm {
+        mov edx, arg_unit
+        mov eax, arg_base_speed
+        mov ecx, 0x0047B5F0
+        call ecx
+    }
+}
+
+inline void SetDirection(Flingy * arg_flingy, int arg_direction)
+{
+    __asm {
+        mov eax, arg_flingy
+        mov ebx, arg_direction
+        mov ecx, 0x00495F20
+        call ecx
+    }
+}
+
+inline bool ShouldStopOrderedSpell(Unit * arg_unit)
+{
+    __asm {
+        mov edi, arg_unit
+        mov eax, 0x00492140
+        call eax
+    }
+}
+
+inline void Iscript_AttackWith(Unit * arg_unit, int arg_ground)
+{
+    __asm {
+        push arg_ground;
+        mov eax, arg_unit
+        mov ecx, 0x00479D60
+        call ecx
+    }
+}
+
+inline void Iscript_UseWeapon(int arg_weapon_id, Unit * arg_unit)
+{
+    __asm {
+        push arg_weapon_id;
+        mov esi, arg_unit
+        mov eax, 0x00479C30
+        call eax
+    }
+}
+
+inline void GetClosestPointOfTarget(Unit * arg_unit, uint32_t * arg_out_x, uint32_t * arg_out_y)
+{
+    __asm {
+        push arg_out_y;
+        push arg_out_x;
+        push arg_unit;
+        mov eax, 0x004762C0
+        call eax
+    }
+}
+
+inline void SetMoveTargetToNearbyPoint(int arg_direction, Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_direction
+        mov edx, arg_unit
+        mov ecx, 0x004011A0
+        call ecx
+    }
+}
+
+inline void FireWeapon(Unit * arg_parent, int arg_weapon_id)
+{
+    __asm {
+        mov eax, arg_parent
+        mov ebx, arg_weapon_id
+        mov ecx, 0x00479D40
+        call ecx
+    }
+}
+
+inline void InitializeImageFull(int arg_image_id, Image * arg_img, int arg_x, int arg_y, Sprite * arg_parent)
+{
+    __asm {
+        push arg_image_id;
+        mov ebx, arg_img
+        mov ecx, arg_x
+        mov eax, arg_y
+        mov edi, arg_parent
+        mov edx, 0x004010E0
+        call edx
+    }
+}
+
+inline bool InitializeFlingy(Flingy * arg_flingy, int arg_player, int arg_direction, int arg_flingy_id, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_direction;
+        push arg_player;
+        push arg_flingy;
+        mov eax, arg_flingy_id
+        mov ecx, arg_x
+        mov edx, arg_y
+        mov ebx, 0x00496360
+        call ebx
+    }
+}
+
+inline void SetOffsetToParentsSpecialOverlay(Image * arg_img)
+{
+    __asm {
+        mov ecx, arg_img
+        mov eax, 0x004D5A00
+        call eax
+    }
+}
+
+inline uint32_t GetPsiPlacementState(int arg_x_tile, int arg_y_tile, int arg_unit_id, int arg_player)
+{
+    __asm {
+        push arg_y_tile;
+        push arg_x_tile;
+        mov esi, arg_unit_id
+        mov eax, arg_player
+        mov ecx, 0x00473920
+        call ecx
+    }
+}
+
+inline uint32_t GetGasBuildingPlacementState(int arg_x_tile, int arg_y_tile, int arg_player, int arg_check_vision)
+{
+    __asm {
+        push arg_check_vision;
+        push arg_player;
+        push arg_y_tile;
+        push arg_x_tile;
+        mov eax, 0x00473DB0
+        call eax
+    }
+}
+
+inline uint32_t UpdateNydusPlacementState(int arg_player, int arg_x_tile, int arg_y_tile, int arg_size_wh, int arg_placement_state_entry, int arg_check_vision)
+{
+    __asm {
+        push arg_check_vision;
+        push arg_placement_state_entry;
+        push arg_size_wh;
+        push arg_y_tile;
+        push arg_x_tile;
+        mov eax, arg_player
+        mov ecx, 0x00473150
+        call ecx
+    }
+}
+
+inline uint32_t UpdateCreepBuildingPlacementState(int arg_player, int arg_x_tile, int arg_y_tile, int arg_size_wh, int arg_placement_state_entry, int arg_check_vision, int arg_check_vision2)
+{
+    __asm {
+        push arg_check_vision2;
+        push arg_check_vision;
+        push arg_placement_state_entry;
+        push arg_size_wh;
+        push arg_y_tile;
+        push arg_x_tile;
+        mov eax, arg_player
+        mov ecx, 0x00473010
+        call ecx
+    }
+}
+
+inline uint32_t UpdateBuildingPlacementState_MapTileFlags(int arg_x_tile, int arg_y_tile, int arg_player, int arg_size_wh, int arg_placement_state_entry, int arg_check_vision, int arg_unit_id)
+{
+    __asm {
+        push arg_check_vision;
+        push arg_placement_state_entry;
+        push arg_size_wh;
+        push arg_player;
+        push arg_y_tile;
+        push arg_x_tile;
+        mov eax, arg_unit_id
+        mov ecx, 0x00473A10
+        call ecx
+    }
+}
+
+inline uint32_t UpdateBuildingPlacementState_Units(Unit * arg_builder, int arg_x_tile, int arg_y_tile, int arg_player, int arg_unit_id, int arg_size_wh, int arg_placement_state_entry, int arg_dont_ignore_reacting, int arg_also_invisible, int arg_without_vision)
+{
+    __asm {
+        push arg_without_vision;
+        push arg_also_invisible;
+        push arg_dont_ignore_reacting;
+        push arg_placement_state_entry;
+        push arg_size_wh;
+        push arg_unit_id;
+        push arg_player;
+        push arg_x_tile;
+        push arg_builder;
+        mov eax, arg_y_tile
+        mov ecx, 0x00473720
+        call ecx
+    }
+}
+
+inline void MoveTowards(Unit * arg_self, Unit * arg_target)
+{
+    __asm {
+        mov ecx, arg_self
+        mov eax, arg_target
+        mov edx, 0x004EB900
+        call edx
+    }
+}
+
+inline void MoveToCollide(Unit * arg_unit, Unit * arg_target)
+{
+    __asm {
+        mov edi, arg_unit
+        mov eax, arg_target
+        mov ecx, 0x00495400
+        call ecx
+    }
+}
+
+inline void InheritAi(Unit * arg_parent, Unit * arg_unit)
+{
+    __asm {
+        mov ecx, arg_parent
+        mov eax, arg_unit
+        mov edx, 0x00435770
+        call edx
+    }
+}
+
+inline void MutateBuilding(Unit * arg_drone, int arg_unit_id)
+{
+    __asm {
+        push arg_unit_id;
+        mov eax, arg_drone
+        mov ecx, 0x0045D890
+        call ecx
+    }
+}
+
+inline void ReduceBuildResources(int arg_player)
+{
+    __asm {
+        mov eax, arg_player
+        mov ecx, 0x0042CE40
+        call ecx
+    }
+}
+
+inline int CheckSupplyForBuilding(int arg_player_id, int arg_unit_id, int arg_notify_error)
+{
+    __asm {
+        push arg_notify_error;
+        push arg_unit_id;
+        push arg_player_id;
+        mov eax, 0x0042CF70
+        call eax
+    }
+}
+
+inline Unit * BeginGasBuilding(int arg_unit_id, Unit * arg_worker)
+{
+    __asm {
+        push arg_unit_id;
+        mov eax, arg_worker
+        mov ecx, 0x004678A0
+        call ecx
+    }
+}
+
+inline void StartZergBuilding(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x0045D2E0
+        call ecx
+    }
+}
+
+inline int LetNextUnitMine(Unit * arg_resource)
+{
+    __asm {
+        mov ebx, arg_resource
+        mov eax, 0x00468970
+        call eax
+    }
+}
+
+inline void BeginHarvest(Unit * arg_worker, Unit * arg_resource)
+{
+    __asm {
+        mov eax, arg_worker
+        mov edi, arg_resource
+        mov ecx, 0x00468C70
+        call ecx
+    }
+}
+
+inline void AddResetHarvestCollisionOrder(Unit * arg_worker)
+{
+    __asm {
+        mov eax, arg_worker
+        mov ecx, 0x00468AA0
+        call ecx
+    }
+}
+
+inline bool IsFacingMoveTarget(Flingy * arg_flingy)
+{
+    __asm {
+        mov esi, arg_flingy
+        mov eax, 0x00402BE0
+        call eax
+    }
+}
+
+inline void FinishedMining(Unit * arg_resource, Unit * arg_worker)
+{
+    __asm {
+        mov ecx, arg_resource
+        mov eax, arg_worker
+        mov edx, 0x00468E40
+        call edx
+    }
+}
+
+inline bool Ai_CanMineExtra(Unit * arg_worker)
+{
+    __asm {
+        mov eax, arg_worker
+        mov ecx, 0x00447A70
+        call ecx
+    }
+}
+
+inline void CreateResourceOverlay(int arg_unused_count, int arg_minerals, Unit * arg_worker, int arg_image_id)
+{
+    __asm {
+        push arg_unused_count;
+        mov edx, arg_minerals
+        mov edi, arg_worker
+        mov esi, arg_image_id
+        mov eax, 0x004F3AF0
+        call eax
+    }
+}
+
+inline void UpdateMineralAmountAnimation(Unit * arg_minerals)
+{
+    __asm {
+        mov ecx, arg_minerals
+        mov eax, 0x00468830
+        call eax
+    }
+}
+
+inline void MergeArchonStats(Unit * arg_archon, Unit * arg_other_templar)
+{
+    __asm {
+        mov eax, arg_archon
+        mov ecx, arg_other_templar
+        mov edx, 0x00493180
+        call edx
+    }
+}
+
+inline Unit * SpiderMine_FindTarget(Unit * arg_mine)
+{
+    __asm {
+        mov esi, arg_mine
+        mov eax, 0x00441270
+        call eax
+    }
+}
+
+inline void Burrow_Generic(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004E9A30
+        call ecx
+    }
+}
+
+inline void InstantCloak(Unit * arg_unit)
+{
+    __asm {
+        mov edi, arg_unit
+        mov eax, 0x0049B1E0
+        call eax
+    }
+}
+
+inline void Unburrow_Generic(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004E99D0
+        call ecx
+    }
+}
+
+inline void DetachAddon(Unit * arg_parent)
+{
+    __asm {
+        mov eax, arg_parent
+        mov ecx, 0x00464930
+        call ecx
+    }
+}
+
+inline void CancelTech(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x00453DD0
+        call eax
+    }
+}
+
+inline void CancelUpgrade(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x00454220
+        call eax
+    }
+}
+
+inline void EndAddonPlacement()
+{
+    __asm {
+        mov eax, 0x0048E6E0
+        call eax
+    }
+}
+
+inline void ReplaceSprite(int arg_image_id, int arg_direction, Sprite * arg_sprite)
+{
+    __asm {
+        push arg_direction;
+        push arg_image_id;
+        mov eax, arg_sprite
+        mov ecx, 0x00499BB0
+        call ecx
+    }
+}
+
+inline bool IsGoodLarvaPosition(Unit * arg_larva, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_y;
+        push arg_x;
+        mov ebx, arg_larva
+        mov eax, 0x004E93E0
+        call eax
+    }
+}
+
+inline void GetDefaultLarvaPosition(Unit * arg_larva, uint32_t * arg_x, uint32_t * arg_y)
+{
+    __asm {
+        push arg_y;
+        push arg_x;
+        push arg_larva;
+        mov eax, 0x004E94B0
+        call eax
+    }
+}
+
+inline bool Ai_UnitSpecific(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004A2450
+        call ecx
+    }
+}
+
+inline void Ai_WorkerAi(Unit * arg_unit)
+{
+    __asm {
+        push arg_unit;
+        mov eax, 0x00435210
+        call eax
+    }
+}
+
+inline bool Ai_TryProgressSpendingQueue(Unit * arg_unit)
+{
+    __asm {
+        mov ecx, arg_unit
+        mov eax, 0x004361A0
+        call eax
+    }
+}
+
+inline void Ai_Military(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x0043D910
+        call ecx
+    }
+}
+
+inline bool Ai_IsInAttack(Unit * arg_unit, int arg_dont_count_moving_to_attack)
+{
+    __asm {
+        push arg_dont_count_moving_to_attack;
+        mov eax, arg_unit
+        mov ecx, 0x00436E70
+        call ecx
+    }
+}
+
+inline Unit * Ai_FindNearestRepairer(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00440770
+        call ecx
+    }
+}
+
+inline void Ai_SiegeTank(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004A12C0
+        call ecx
+    }
+}
+
+inline void Ai_Burrower(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004A1340
+        call ecx
+    }
+}
+
+inline bool Ai_IsMilitaryAtRegionWithoutState0(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00436AE0
+        call ecx
+    }
+}
+
+inline void LoadFighter(Unit * arg_carrier, Unit * arg_interceptor)
+{
+    __asm {
+        mov ecx, arg_carrier
+        mov eax, arg_interceptor
+        mov edx, 0x00466270
+        call edx
+    }
+}
+
+inline void Command_StartGame(int arg_player)
+{
+    __asm {
+        push arg_player;
+        mov eax, 0x00472060
+        call eax
+    }
+}
+
+inline void DrawDownloadStatuses()
+{
+    __asm {
+        mov eax, 0x00450210
+        call eax
+    }
+}
+
+inline void Command_NewNetPlayer(int arg_net_player, void * arg_data)
+{
+    __asm {
+        push arg_net_player;
+        mov edx, arg_data
+        mov eax, 0x004713E0
+        call eax
+    }
+}
+
+inline void Command_ChangeGameSlot(int arg_net_player, void * arg_data)
+{
+    __asm {
+        mov eax, arg_net_player
+        mov ecx, arg_data
+        mov edx, 0x00471460
+        call edx
+    }
+}
+
+inline void Command_ChangeRace(void * arg_data, int arg_player)
+{
+    __asm {
+        push arg_player;
+        push arg_data;
+        mov eax, 0x00471300
+        call eax
+    }
+}
+
+inline void Command_TeamGameTeam(void * arg_data, int arg_player)
+{
+    __asm {
+        push arg_player;
+        mov ecx, arg_data
+        mov eax, 0x00471750
+        call eax
+    }
+}
+
+inline void Command_UmsTeam(void * arg_data, int arg_player)
+{
+    __asm {
+        push arg_player;
+        push arg_data;
+        mov eax, 0x00471670
+        call eax
+    }
+}
+
+inline void Command_MeleeTeam(void * arg_data, int arg_player)
+{
+    __asm {
+        push arg_player;
+        mov ebx, arg_data
+        mov eax, 0x00471570
+        call eax
+    }
+}
+
+inline void Command_SwapPlayers(void * arg_data, int arg_player)
+{
+    __asm {
+        push arg_player;
+        mov ebx, arg_data
+        mov eax, 0x00471860
+        call eax
+    }
+}
+
+inline void Command_SavedData(void * arg_data, int arg_player)
+{
+    __asm {
+        mov edx, arg_data
+        mov eax, arg_player
+        mov ecx, 0x00472110
+        call ecx
+    }
+}
+
+inline void MakeGamePublic()
+{
+    __asm {
+        mov eax, 0x004C46E0
+        call eax
+    }
+}
+
+inline void Ctrl_LeftUp(Control * arg_ctrl)
+{
+    __asm {
+        mov esi, arg_ctrl
+        mov eax, 0x00418640
+        call eax
+    }
+}
+
+inline void RemoveCreepAtUnit(int arg_x, int arg_y, int arg_unit_id, void * arg_ClipCreepAreaInBounds_Cb)
+{
+    __asm {
+        push arg_ClipCreepAreaInBounds_Cb;
+        mov ecx, arg_x
+        mov eax, arg_y
+        mov edx, arg_unit_id
+        mov ebx, 0x00414560
+        call ebx
+    }
+}
+
+inline void GiveSprite(Unit * arg_unit, int arg_player)
+{
+    __asm {
+        mov ecx, arg_unit
+        mov edx, arg_player
+        mov eax, 0x0049E4E0
+        call eax
+    }
+}
+
+inline void RedrawGasBuildingPlacement(Unit * arg_geyser)
+{
+    __asm {
+        mov eax, arg_geyser
+        mov ecx, 0x0048E1E0
+        call ecx
+    }
+}
+
+inline Unit * PickReachableTarget(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x00442FC0
+        call eax
+    }
+}
+
+inline bool CanSeeTarget(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x004E5DB0
+        call eax
+    }
+}
+
+inline void ReadFile_Overlapped(void * arg_overlapped, int arg_size, void * arg_buf, void * arg_file)
+{
+    __asm {
+        mov eax, arg_overlapped
+        mov edx, arg_size
+        mov ecx, arg_buf
+        mov edi, arg_file
+        mov ebx, 0x004D2AA0
+        call ebx
+    }
+}
+
+inline void * OpenGrpFile(char * arg_filename)
+{
+    __asm {
+        mov edi, arg_filename
+        mov eax, 0x004D2930
+        call eax
+    }
+}
+
+inline void FileError(void * arg_file, int arg_error)
+{
+    __asm {
+        mov ecx, arg_file
+        mov ebx, arg_error
+        mov eax, 0x004D2880
+        call eax
+    }
+}
+
+inline void ErrorMessageBox(int arg_error, char * arg_filename)
+{
+    __asm {
+        push arg_filename;
+        mov ebx, arg_error
+        mov eax, 0x004212C0
+        call eax
+    }
+}
+
+inline void * ReadMpqFile(char * arg_chk_path, int a2, int a3, const char * arg_source_file, int arg_source_line, int arg_open_mode, uint32_t * arg_out_filesize)
+{
+    __asm {
+        push arg_source_line;
+        push arg_source_file;
+        push a3;
+        push a2;
+        push arg_chk_path;
+        mov ecx, arg_open_mode
+        mov eax, arg_out_filesize
+        mov edx, 0x004D2D10
+        call edx
+    }
+}
+
+inline Unit ** GetClickableUnits(int arg_x, int arg_y)
+{
+    __asm {
+        push arg_x;
+        mov eax, arg_y
+        mov ecx, 0x00431030
+        call ecx
+    }
+}
+
+inline bool IsClickablePixel(Unit * arg_unit, int arg_x, int arg_y)
+{
+    __asm {
+        push arg_unit;
+        mov edi, arg_x
+        mov ebx, arg_y
+        mov eax, 0x00402A00
+        call eax
+    }
+}
+
+inline void KickPlayer(int arg_net_player, int arg_reason)
+{
+    __asm {
+        mov esi, arg_net_player
+        mov eax, arg_reason
+        mov ecx, 0x00470480
+        call ecx
+    }
+}
+
+inline void InitPlayerStructs(int arg_local_net_player)
+{
+    __asm {
+        mov esi, arg_local_net_player
+        mov eax, 0x004A8D40
+        call eax
+    }
+}
+
+inline void InitNetPlayer(int arg_id, int arg_flags, int arg_x4, int arg_x6)
+{
+    __asm {
+        push arg_x6;
+        push arg_x4;
+        push arg_flags;
+        push arg_id;
+        mov eax, 0x00470D10
+        call eax
+    }
+}
+
+inline void InitPlayerSlot(Player * arg_player)
+{
+    __asm {
+        mov edi, arg_player
+        mov eax, 0x00470F90
+        call eax
+    }
+}
+
+inline void InitNetPlayerInfo(int arg_player)
+{
+    __asm {
+        mov eax, arg_player
+        mov ecx, 0x00470EF0
+        call ecx
+    }
+}
+
+inline uint32_t CountFreeSlots()
+{
+    __asm {
+        mov eax, 0x004A8CD0
+        call eax
+    }
+}
+
+inline void SetFreeSlots(int arg_free_slots)
+{
+    __asm {
+        push arg_free_slots;
+        mov eax, 0x004C4160
+        call eax
+    }
+}
+
+inline void SendInfoRequestCommand(int arg_net_player)
+{
+    __asm {
+        mov eax, arg_net_player
+        mov ecx, 0x00470250
+        call ecx
+    }
+}
+
+inline void InitMapDownload(MapDl * arg_unk, int arg_net_player)
+{
+    __asm {
+        push arg_net_player;
+        push arg_unk;
+        mov eax, 0x00472AB0
+        call eax
+    }
+}
+
+inline uint32_t GetFirstFreeHumanPlayerId()
+{
+    __asm {
+        mov eax, 0x004A99C0
+        call eax
+    }
+}
+
+inline uint32_t GetFreeSlotFromEmptiestTeam()
+{
+    __asm {
+        mov eax, 0x0045ADE0
+        call eax
+    }
+}
+
+inline uint32_t GetTeamGameTeamSize()
+{
+    __asm {
+        mov eax, 0x00485710
+        call eax
+    }
+}
+
+inline void InitFlingies()
+{
+    __asm {
+        mov eax, 0x00496520
+        call eax
+    }
+}
+
+inline void InitAi()
+{
+    __asm {
+        mov eax, 0x004A1EA0
+        call eax
+    }
+}
+
+inline void InitText()
+{
+    __asm {
+        mov eax, 0x0048CE90
+        call eax
+    }
+}
+
+inline void InitTerrain()
+{
+    __asm {
+        mov eax, 0x004BD6F0
+        call eax
+    }
+}
+
+inline void InitSprites()
+{
+    __asm {
+        mov eax, 0x00499900
+        call eax
+    }
+}
+
+inline void InitLoneSprites()
+{
+    __asm {
+        mov eax, 0x00488550
+        call eax
+    }
+}
+
+inline void InitImages()
+{
+    __asm {
+        mov eax, 0x004D6930
+        call eax
+    }
+}
+
+inline void InitColorCycling()
+{
+    __asm {
+        mov eax, 0x004CBED0
+        call eax
+    }
+}
+
+inline void UpdateColorPaletteIndices(void * arg_param, void * arg_func)
+{
+    __asm {
+        push arg_param;
+        mov ebx, arg_func
+        mov eax, 0x0041E450
+        call eax
+    }
+}
+
+inline void InitTransparency()
+{
+    __asm {
+        mov eax, 0x004C99C0
+        call eax
+    }
+}
+
+inline void InitScoreSupply()
+{
+    __asm {
+        mov eax, 0x00488F90
+        call eax
+    }
+}
+
+inline void LoadMiscDat()
+{
+    __asm {
+        mov eax, 0x004CCC80
+        call eax
+    }
+}
+
+inline void InitSpriteVisionSync()
+{
+    __asm {
+        mov eax, 0x00497110
+        call eax
+    }
+}
+
+inline void InitScreenPositions()
+{
+    __asm {
+        mov eax, 0x004BD3F0
+        call eax
+    }
+}
+
+inline void InitTerrainAi()
+{
+    __asm {
+        mov eax, 0x004A13B0
+        call eax
+    }
+}
+
+inline void CloseBnet()
+{
+    __asm {
+        mov eax, 0x004DCC50
+        call eax
+    }
+}
+
+inline void BwError(char * arg_file, int arg_line, char * arg_msg, int arg_network_tbl_error)
+{
+    __asm {
+        push arg_network_tbl_error;
+        mov ecx, arg_file
+        mov eax, arg_line
+        mov edx, arg_msg
+        mov ebx, 0x004BB300
+        call ebx
+    }
+}
+
+inline uint32_t LoadChk()
+{
+    __asm {
+        mov eax, 0x004BF520
+        call eax
+    }
+}
+
+inline void CreateTeamGameStartingUnits()
+{
+    __asm {
+        mov eax, 0x0049D8E0
+        call eax
+    }
+}
+
+inline void CreateStartingUnits()
+{
+    __asm {
+        mov eax, 0x0049DA40
+        call eax
+    }
+}
+
+inline void InitUnitSystem()
+{
+    __asm {
+        mov eax, 0x0049F380
+        call eax
+    }
+}
+
+inline void InitPylonSystem()
+{
+    __asm {
+        mov eax, 0x00493360
+        call eax
+    }
+}
+
+inline void GetReplayPath(const char * arg_base_name, void * arg_out, int arg_max_len)
+{
+    __asm {
+        push arg_base_name;
+        mov eax, arg_out
+        mov esi, arg_max_len
+        mov ecx, 0x004DEF80
+        call ecx
+    }
+}
+
+inline bool WriteReplayData(ReplayData * arg_data, File * arg_file)
+{
+    __asm {
+        mov esi, arg_data
+        mov edi, arg_file
+        mov eax, 0x004CE1C0
+        call eax
+    }
+}
+
+inline void * ReadChk(uint32_t * arg_out_filesize, char * arg_map_path)
+{
+    __asm {
+        push arg_out_filesize;
+        mov eax, arg_map_path
+        mov ecx, 0x004CC6E0
+        call ecx
+    }
+}
+
+inline void GiveAi(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00463040
+        call ecx
+    }
+}
+
+inline bool Interceptor_Attack(Unit * arg_interceptor)
+{
+    __asm {
+        mov eax, arg_interceptor
+        mov ecx, 0x00465810
+        call ecx
+    }
+}
+
+inline void Interceptor_Move(Unit * arg_unit, int arg_area_size, int arg_position)
+{
+    __asm {
+        push arg_position;
+        mov eax, arg_unit
+        mov ecx, arg_area_size
+        mov edx, 0x00465D30
+        call edx
+    }
+}
+
+inline bool AttackRecentAttacker(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x004770E0
+        call ecx
+    }
+}
+
+inline void NeutralizeUnit(Unit * arg_unit)
+{
+    __asm {
+        mov esi, arg_unit
+        mov eax, 0x0047CB90
+        call eax
+    }
+}
+
+inline void RemoveCloakDrawfuncs(Sprite * arg_sprite)
+{
+    __asm {
+        mov eax, arg_sprite
+        mov ecx, 0x00497E80
+        call ecx
+    }
+}
+
+inline void FlyingBuilding_SwitchedState(Unit * arg_building)
+{
+    __asm {
+        mov eax, arg_building
+        mov ecx, 0x0046A5A0
+        call ecx
+    }
+}
+
+inline void FlyingBuilding_LiftIfStillBlocked(Unit * arg_building)
+{
+    __asm {
+        mov eax, arg_building
+        mov ecx, 0x00463640
+        call ecx
+    }
+}
+
+inline Unit * FindClaimableAddon(Unit * arg_building)
+{
+    __asm {
+        mov esi, arg_building
+        mov eax, 0x004404A0
+        call eax
+    }
+}
+
+inline void AttachAddon(Unit * arg_owner, Unit * arg_addon)
+{
+    __asm {
+        mov edi, arg_owner
+        mov eax, arg_addon
+        mov ecx, 0x00463D50
+        call ecx
+    }
+}
+
+inline void ShowLandingError(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x0048F5A0
+        call ecx
+    }
+}
+
+inline bool Ai_IsUnreachable(Unit * arg_self, Unit * arg_other)
+{
+    __asm {
+        mov esi, arg_self
+        mov eax, arg_other
+        mov ecx, 0x00476C50
+        call ecx
+    }
+}
+
+inline void MoveForMeleeRange(Unit * arg_unit, Unit * arg_target)
+{
+    __asm {
+        push arg_unit;
+        mov eax, arg_target
+        mov ecx, 0x00477F10
+        call ecx
+    }
+}
+
+inline Unit * BeginTrain(Unit * arg_unit, int arg_unit_id, int arg_notify_error)
+{
+    __asm {
+        push arg_notify_error;
+        mov esi, arg_unit
+        mov edi, arg_unit_id
+        mov eax, 0x00468200
+        call eax
+    }
+}
+
+inline uint32_t GetBuildHpGain(Unit * arg_unit)
+{
+    __asm {
+        mov eax, arg_unit
+        mov ecx, 0x00402C40
+        call ecx
+    }
+}
+
+inline uint32_t ProgressBuild(Unit * arg_unit, int arg_hp_gain, int arg_unk)
+{
+    __asm {
+        push arg_unk;
+        mov eax, arg_unit
+        mov edx, arg_hp_gain
+        mov ecx, 0x004679A0
+        call ecx
+    }
+}
+
+inline void RallyUnit(Unit * arg_parent, Unit * arg_created)
+{
+    __asm {
+        mov ecx, arg_parent
+        mov eax, arg_created
+        mov edx, 0x00466F50
+        call edx
+    }
+}
+
+inline void * SMemAlloc(uint32_t arg_amt, const char * arg_file, uint32_t arg_line, uint32_t arg_fill)
+{
+    __asm {
+        push arg_fill;
+        push arg_line;
+        push arg_file;
+        push arg_amt;
+        mov eax, 0x15020ED0
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline void SMemFree(void * arg_a, const char * arg_f, uint32_t arg_line, uint32_t arg_meh)
+{
+    __asm {
+        push arg_meh;
+        push arg_line;
+        push arg_f;
+        push arg_a;
+        mov eax, 0x150205D0
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline void SFileCloseArchive(void * arg_archive)
+{
+    __asm {
+        push arg_archive;
+        mov eax, 0x15014A80
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline void SFileCloseFile(void * arg_file)
+{
+    __asm {
+        push arg_file;
+        mov eax, 0x150152B0
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline uint32_t SNetInitializeProvider(void * arg_eka, void * arg_toka, void * arg_koka, void * arg_neka, void * arg_vika)
+{
+    __asm {
+        push arg_vika;
+        push arg_neka;
+        push arg_koka;
+        push arg_toka;
+        push arg_eka;
+        mov eax, 0x1503E560
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline uint32_t SNetGetPlayerName(int arg_player, char * arg_buf, int arg_buf_size)
+{
+    __asm {
+        push arg_buf_size;
+        push arg_buf;
+        push arg_player;
+        mov eax, 0x150370C0
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline uint32_t SFileGetFileSize(void * arg_file, uint32_t * arg_out_high)
+{
+    __asm {
+        push arg_out_high;
+        push arg_file;
+        mov eax, 0x15013F50
+        add eax, storm::base_diff
+        call eax
+    }
+}
+
+inline uint32_t SBmpDecodeImage(int a1, const void * arg_img, int arg_input_size, int a4, void * arg_out, int arg_size, uint32_t * arg_width, uint32_t * arg_height, int a9)
+{
+    __asm {
+        push a9;
+        push arg_height;
+        push arg_width;
+        push arg_size;
+        push arg_out;
+        push a4;
+        push arg_input_size;
+        push arg_img;
+        push a1;
+        mov eax, 0x15024D50
+        add eax, storm::base_diff
+        call eax
+    }
+}
+

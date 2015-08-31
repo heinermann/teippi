@@ -10,6 +10,134 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9D2B1135-E49B-42B2-930C-72447C00BC05}</ProjectGuid>
+    <RootNamespace>Teippi</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>DEBUG;_DEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include/freetype26;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>msvc.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>include/freetype26;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype26.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>msvc.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ai.cpp" />
+    <ClCompile Include="src\building.cpp" />
+    <ClCompile Include="src\bullet.cpp" />
+    <ClCompile Include="src\bunker.cpp" />
+    <ClCompile Include="src\bwlauncher.cpp" />
+    <ClCompile Include="src\commands.cpp" />
+    <ClCompile Include="src\console\assert.cpp" />
+    <ClCompile Include="src\console\cmdargs.cpp" />
+    <ClCompile Include="src\console\console.cpp" />
+    <ClCompile Include="src\console\font.cpp" />
+    <ClCompile Include="src\console\genericconsole.cpp" />
+    <ClCompile Include="src\datastream.cpp" />
+    <ClCompile Include="src\dialog.cpp" />
+    <ClCompile Include="src\draw.cpp" />
+    <ClCompile Include="src\flingy.cpp" />
+    <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\image.cpp" />
+    <ClCompile Include="src\init.cpp" />
+    <ClCompile Include="src\iscript.cpp" />
+    <ClCompile Include="src\limits.cpp" />
+    <ClCompile Include="src\lofile.cpp" />
+    <ClCompile Include="src\log.cpp" />
+    <ClCompile Include="src\mainpatch.cpp" />
+    <ClCompile Include="src\memory.cpp" />
+    <ClCompile Include="src\mpqdraft.cpp" />
+    <ClCompile Include="src\nuke.cpp" />
+    <ClCompile Include="src\order.cpp" />
+    <ClCompile Include="src\patchmanager.cpp" />
+    <ClCompile Include="src\pathing.cpp" />
+    <ClCompile Include="src\perfclock.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\replay.cpp" />
+    <ClCompile Include="src\save.cpp" />
+    <ClCompile Include="src\scconsole.cpp" />
+    <ClCompile Include="src\scthread.cpp" />
+    <ClCompile Include="src\selection.cpp" />
+    <ClCompile Include="src\sprite.cpp" />
+    <ClCompile Include="src\strings.cpp" />
+    <ClCompile Include="src\targeting.cpp" />
+    <ClCompile Include="src\tech.cpp" />
+    <ClCompile Include="src\test_game.cpp" />
+    <ClCompile Include="src\text.cpp" />
+    <ClCompile Include="src\triggers.cpp" />
+    <ClCompile Include="src\unit.cpp" />
+    <ClCompile Include="src\unitsearch.cpp" />
+    <ClCompile Include="src\unitsearch_cache.cpp" />
+    <ClCompile Include="src\unit_ai.cpp" />
+    <ClCompile Include="src\unit_movement.cpp" />
+    <ClCompile Include="src\upgrade.cpp" />
+    <ClCompile Include="src\warn.cpp" />
+    <ClCompile Include="src\x86.cpp" />
+    <ClCompile Include="src\yms.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="msvc.def" />
+    <None Include="src\funcs.autogen" />
+    <None Include="src\func\genfuncs.py" />
+    <None Include="wscript" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\func\nuottei.txt" />
+  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ai.h" />
     <ClInclude Include="src\building.h" />
@@ -96,109 +224,6 @@
     <ClInclude Include="src\x86.h" />
     <ClInclude Include="src\yms.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\ai.cpp" />
-    <ClCompile Include="src\building.cpp" />
-    <ClCompile Include="src\bullet.cpp" />
-    <ClCompile Include="src\bunker.cpp" />
-    <ClCompile Include="src\bwlauncher.cpp" />
-    <ClCompile Include="src\commands.cpp" />
-    <ClCompile Include="src\console\assert.cpp" />
-    <ClCompile Include="src\console\cmdargs.cpp" />
-    <ClCompile Include="src\console\console.cpp" />
-    <ClCompile Include="src\console\font.cpp" />
-    <ClCompile Include="src\console\genericconsole.cpp" />
-    <ClCompile Include="src\datastream.cpp" />
-    <ClCompile Include="src\dialog.cpp" />
-    <ClCompile Include="src\draw.cpp" />
-    <ClCompile Include="src\flingy.cpp" />
-    <ClCompile Include="src\game.cpp" />
-    <ClCompile Include="src\image.cpp" />
-    <ClCompile Include="src\init.cpp" />
-    <ClCompile Include="src\iscript.cpp" />
-    <ClCompile Include="src\limits.cpp" />
-    <ClCompile Include="src\lofile.cpp" />
-    <ClCompile Include="src\log.cpp" />
-    <ClCompile Include="src\mainpatch.cpp" />
-    <ClCompile Include="src\memory.cpp" />
-    <ClCompile Include="src\mpqdraft.cpp" />
-    <ClCompile Include="src\nuke.cpp" />
-    <ClCompile Include="src\order.cpp" />
-    <ClCompile Include="src\patchmanager.cpp" />
-    <ClCompile Include="src\pathing.cpp" />
-    <ClCompile Include="src\perfclock.cpp" />
-    <ClCompile Include="src\player.cpp" />
-    <ClCompile Include="src\replay.cpp" />
-    <ClCompile Include="src\save.cpp" />
-    <ClCompile Include="src\scconsole.cpp" />
-    <ClCompile Include="src\scthread.cpp" />
-    <ClCompile Include="src\selection.cpp" />
-    <ClCompile Include="src\sprite.cpp" />
-    <ClCompile Include="src\strings.cpp" />
-    <ClCompile Include="src\targeting.cpp" />
-    <ClCompile Include="src\tech.cpp" />
-    <ClCompile Include="src\test_game.cpp" />
-    <ClCompile Include="src\text.cpp" />
-    <ClCompile Include="src\triggers.cpp" />
-    <ClCompile Include="src\unit.cpp" />
-    <ClCompile Include="src\unitsearch.cpp" />
-    <ClCompile Include="src\unitsearch_cache.cpp" />
-    <ClCompile Include="src\unit_ai.cpp" />
-    <ClCompile Include="src\unit_movement.cpp" />
-    <ClCompile Include="src\upgrade.cpp" />
-    <ClCompile Include="src\warn.cpp" />
-    <ClCompile Include="src\x86.cpp" />
-    <ClCompile Include="src\yms.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\func\genfuncs.py" />
-    <None Include="wscript" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="src\func\nuottei.txt" />
-  </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <ProjectGuid>{E4F0C53F-8541-4895-9050-EA38F8874F96}</ProjectGuid>
-    <Keyword>MakeFileProj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Makefile</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Makefile</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeBuildCommandLine>python waf</NMakeBuildCommandLine>
-    <NMakeCleanCommandLine>python waf clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>python waf clean build</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <NMakeBuildCommandLine>python waf</NMakeBuildCommandLine>
-    <NMakeCleanCommandLine>python waf clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>python waf clean build</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-  </PropertyGroup>
-  <ItemDefinitionGroup>
-  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

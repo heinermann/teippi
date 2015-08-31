@@ -1,8 +1,10 @@
 *.bat
+Debug/*
 Release/*
 build/*
 .lock-*
 waf*/*
+.waf*/*
 
 .vs/*
 x86/*
